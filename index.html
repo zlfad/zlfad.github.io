@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Muhammad Zulfadli bin Kamaruzzaman — Final-year CS Student & Full-Stack Developer specialising in Laravel, React, Python, and AI/ML." />
+  <meta property="og:title" content="Zulfadli — Full-Stack Developer & CS Student" />
+  <meta property="og:description"
+    content="Portfolio of Muhammad Zulfadli, a final-year CS student building full-stack SaaS products and AI-powered applications." />
+  <title>Zulfadli — Full-Stack Developer & CS Student</title>
+
+  <!-- Google Fonts (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Fontshare & Google Fonts (display headings) -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Zulfadli Home">@ Zulfadli</a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+        <li><a href="#experience" class="nav-link" id="nav-exp">Experience</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-proj">Projects</a></li>
+        <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+        <li><a href="#contact" class="nav-link nav-link--cta" id="nav-contact">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <!-- Overflowing large background text -->
+    <div class="hero-bg-text" aria-hidden="true">
+      <span class="hero-bg-scroll">Full-Stack Developer &amp; CS Student &nbsp;&nbsp;•&nbsp;&nbsp; Full-Stack Developer
+        &amp; CS Student &nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      <div class="hero-name-prefix">Hello I'm</div>
+      <h1 class="hero-name">Muhammad<br /><em>Zulfadli</em></h1>
+      <p class="hero-tagline">Final-year CS Student &amp; Full-Stack Developer<br />Laravel · React · Python · AI/ML</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn--primary magnetic-btn" id="hero-cta-projects">View Projects</a>
+        <a href="#contact" class="btn btn--outline magnetic-btn" id="hero-cta-contact">Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Profile photo -->
+    <div class="hero-photo-wrap">
+      <div class="photo-rings">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" stroke="rgba(0,255,153,0.4)" stroke-width="0.5" fill="none"
+            stroke-dasharray="10 5" class="ring ring-1"></circle>
+          <circle cx="50" cy="50" r="44" stroke="rgba(0,255,153,0.8)" stroke-width="1" fill="none"
+            stroke-dasharray="5 15" class="ring ring-2"></circle>
+          <circle cx="50" cy="50" r="40" stroke="rgba(0,255,153,0.2)" stroke-width="2" fill="none" class="ring ring-3">
+          </circle>
+        </svg>
+      </div>
+      <img src="assets/images/profile.jpeg" alt="Muhammad Zulfadli — profile photo" class="hero-photo" />
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        aria-hidden="true">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-label reveal">About me</div>
+      <h2 class="section-title reveal" id="about-heading">
+        Driven by curiosity,<br />building things that matter
+      </h2>
+
+      <div class="bento-grid">
+        <!-- Main Intro -->
+        <div class="bento-card bento-wide reveal">
+          <div class="bento-content">
+            <h3 class="bento-title">Final-Year CS Student & Web Developer</h3>
+            <p class="bento-desc">I specialise in full-stack web development using <strong>Laravel and React</strong>,
+              and I'm passionate about applying AI/ML to real-world problems. Beyond code, I care deeply about crafting
+              software that's fast, maintainable, and actually useful.</p>
+          </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="bento-card bento-photo bento-tall reveal">
+          <img src="assets/images/profile1.jpeg" alt="Zulfadli profile photo" />
+          <div class="bento-photo-overlay"></div>
+        </div>
+
+        <!-- Current Role -->
+        <div class="bento-card bento-tall reveal">
+          <div class="bento-content">
+            <h3 class="bento-title">Trackerhero</h3>
+            <p class="bento-desc">Currently interning as a <strong>Software Developer</strong>, building a SaaS CRM
+              platform with omnichannel inbox, Kanban pipelines, and real-time messaging.</p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="bento-card bento-wide bento-stats reveal">
+          <div class="stat-item">
+            <span class="stat-num">3.56</span>
+            <span class="stat-label">CGPA</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">2+</span>
+            <span class="stat-label">Internships</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="bento-card bento-full reveal">
+          <div class="bento-content">
+            <h3 class="bento-title">Education</h3>
+            <div class="about-edu">
+              <div class="edu-item">
+                <div class="edu-year">2024 – Present</div>
+                <div class="edu-degree">Bachelor of Computer Science (Hons)</div>
+                <div class="edu-school">UiTM Shah Alam · CGPA 3.56 · Dean's List</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-year">2021 – 2024</div>
+                <div class="edu-degree">Diploma in Computer Science</div>
+                <div class="edu-school">UiTM Segamat · CGPA 3.3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section class="section experience" id="experience" aria-labelledby="exp-heading">
+    <div class="container">
+      <div class="section-label reveal">Work experience</div>
+      <h2 class="section-title reveal" id="exp-heading">
+        Where I've been<br />&amp; what I built
+      </h2>
+
+      <div class="timeline">
+
+        <!-- Current role -->
+        <div class="timeline-item reveal" id="exp-trackerhero">
+          <div class="timeline-marker">
+            <div class="marker-dot marker-dot--active"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <div class="timeline-role">Software Developer Intern</div>
+                <div class="timeline-company">Trackerhero Sdn Bhd</div>
+              </div>
+              <div class="timeline-badge timeline-badge--active">Current</div>
+            </div>
+            <div class="timeline-period">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              March 2026 – Present
+            </div>
+            <ul class="timeline-points">
+              <li>Built a full-stack CRM SaaS with <strong>Laravel, React &amp; Tailwind CSS</strong> — omnichannel
+                inbox, Kanban pipelines, lead management</li>
+              <li>Developed backend services, REST API integrations, real-time communication &amp; multi-tenant
+                architecture</li>
+              <li>Maintained live production app — resolved bugs, improved database models &amp; schema designs</li>
+              <li>Conducted QA testing &amp; authored technical documentation and user manuals</li>
+            </ul>
+            <div class="timeline-tech">
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">Multi-tenant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Previous role -->
+        <div class="timeline-item reveal" id="exp-2en">
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <div class="timeline-role">System Analyst Intern</div>
+                <div class="timeline-company">2en Apps Sdn Bhd</div>
+              </div>
+            </div>
+            <div class="timeline-period">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              September 2023 – February 2024
+            </div>
+            <ul class="timeline-points">
+              <li>Authored <strong>BRS, SRS, and SDD</strong> system documentation for enterprise software projects</li>
+              <li>Created system flowcharts and process diagrams using <strong>Microsoft Visio</strong></li>
+              <li>Contributed to QA documentation and cross-functional team collaboration</li>
+            </ul>
+            <div class="timeline-tech">
+              <span class="tech-tag">System Analysis</span>
+              <span class="tech-tag">BRS / SRS / SDD</span>
+              <span class="tech-tag">Microsoft Visio</span>
+              <span class="tech-tag">QA Documentation</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section projects" id="projects" aria-labelledby="proj-heading">
+    <div class="container">
+      <div class="section-label reveal">Selected works</div>
+      <h2 class="section-title reveal" id="proj-heading">
+        Impressive<br />Works
+      </h2>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal" id="project-mindaconnect" aria-labelledby="proj-title-1">
+          <div class="project-img-wrap">
+            <img src="assets/images/mindaconnect.png" alt="MindaConnect AI chatbot interface" class="project-img"
+              loading="lazy" />
+            <div class="project-img-overlay">
+              <a href="https://github.com/zlfad" target="_blank" rel="noopener noreferrer" class="project-link-btn"
+                aria-label="View MindaConnect on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                View Project
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">01</div>
+            <h3 class="project-title" id="proj-title-1">MindaConnect</h3>
+            <p class="project-desc">AI-powered chatbot for depression support — fine-tuned LLaMA model with custom NLP
+              dataset. Built to provide empathetic, evidence-informed conversation for mental health support.</p>
+            <div class="project-tech">
+              <span class="tech-tag tech-tag--accent">Python</span>
+              <span class="tech-tag tech-tag--accent">Flask</span>
+              <span class="tech-tag tech-tag--accent">LLaMA</span>
+              <span class="tech-tag tech-tag--accent">NLP</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal" id="project-unitaxi" aria-labelledby="proj-title-2">
+          <div class="project-img-wrap">
+            <img src="assets/images/unitaxi.png" alt="UniTaxi e-hailing booking interface" class="project-img"
+              loading="lazy" />
+            <div class="project-img-overlay">
+              <a href="https://github.com/zlfad" target="_blank" rel="noopener noreferrer" class="project-link-btn"
+                aria-label="View UniTaxi on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                View Project
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-number">02</div>
+            <h3 class="project-title" id="proj-title-2">UniTaxi</h3>
+            <p class="project-desc">Real-time e-hailing system for UiTM students — live ride booking, WebSocket-powered
+              driver tracking, and instant notifications. Built with Java EE and Oracle Database.</p>
+            <div class="project-tech">
+              <span class="tech-tag tech-tag--accent">Java EE</span>
+              <span class="tech-tag tech-tag--accent">WebSockets</span>
+              <span class="tech-tag tech-tag--accent">Oracle DB</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 — CRM SaaS -->
+        <article class="project-card project-card--wide reveal" id="project-crm" aria-labelledby="proj-title-3">
+          <div class="project-body">
+            <div class="project-number">03</div>
+            <h3 class="project-title" id="proj-title-3">CRM SaaS Platform</h3>
+            <p class="project-desc">Full-stack omnichannel CRM built at Trackerhero — includes Kanban pipelines, lead
+              management, inbox, real-time communication, multi-tenant architecture, and a live production environment
+              serving real customers.</p>
+            <div class="project-tech">
+              <span class="tech-tag tech-tag--accent">Laravel</span>
+              <span class="tech-tag tech-tag--accent">React</span>
+              <span class="tech-tag tech-tag--accent">Inertia.js</span>
+              <span class="tech-tag tech-tag--accent">Redis</span>
+              <span class="tech-tag tech-tag--accent">Laravel Horizon</span>
+              <span class="tech-tag tech-tag--accent">shadcn/ui</span>
+            </div>
+          </div>
+          <div class="project-crm-visual" aria-hidden="true">
+            <div class="crm-kanban">
+              <div class="crm-col">
+                <div class="crm-col-head">Lead</div>
+                <div class="crm-card-mini"></div>
+                <div class="crm-card-mini crm-card-mini--tall"></div>
+              </div>
+              <div class="crm-col">
+                <div class="crm-col-head">Qualified</div>
+                <div class="crm-card-mini crm-card-mini--tall"></div>
+                <div class="crm-card-mini"></div>
+              </div>
+              <div class="crm-col">
+                <div class="crm-col-head">Proposal</div>
+                <div class="crm-card-mini"></div>
+              </div>
+              <div class="crm-col">
+                <div class="crm-col-head">Won</div>
+                <div class="crm-card-mini crm-card-mini--tall crm-card-mini--won"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="projects-footer reveal">
+        <a href="https://github.com/zlfad" target="_blank" rel="noopener noreferrer" class="btn btn--ghost"
+          id="btn-github-all">
+          <img src="assets/images/github.svg" width="18" height="18" alt="" aria-hidden="true" />
+          Explore more on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section class="section skills" id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <div class="section-label reveal">Technical skills</div>
+      <h2 class="section-title reveal" id="skills-heading">
+        Skills that fuel<br />my passion
+      </h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal" id="skill-languages">
+          <div class="skill-icon" aria-hidden="true">⟨/⟩</div>
+          <h3 class="skill-cat">Languages</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">PHP</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">C++</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" id="skill-frameworks">
+          <div class="skill-icon" aria-hidden="true">⬡</div>
+          <h3 class="skill-cat">Frameworks</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Laravel</span>
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Inertia.js</span>
+            <span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Flask</span>
+            <span class="skill-pill">Java EE</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">shadcn/ui</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" id="skill-tools">
+          <div class="skill-icon" aria-hidden="true">⚙</div>
+          <h3 class="skill-cat">Tools & DevOps</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">GitLab</span>
+            <span class="skill-pill">VS Code</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">WebSockets</span>
+            <span class="skill-pill">Redis</span>
+            <span class="skill-pill">Laravel Horizon</span>
+            <span class="skill-pill">Vite</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" id="skill-aiml">
+          <div class="skill-icon" aria-hidden="true">◈</div>
+          <h3 class="skill-cat">AI / ML</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">LLMs</span>
+            <span class="skill-pill">Model Fine-Tuning</span>
+            <span class="skill-pill">NLP</span>
+            <span class="skill-pill">Rasa</span>
+            <span class="skill-pill">SVM</span>
+            <span class="skill-pill">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal" id="skill-qa">
+          <div class="skill-icon" aria-hidden="true">✓</div>
+          <h3 class="skill-cat">QA & Testing</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">UAT</span>
+            <span class="skill-pill">Unit Testing</span>
+            <span class="skill-pill">Manual Testing</span>
+            <span class="skill-pill">Technical Docs</span>
+            <span class="skill-pill">BRS / SRS / SDD</span>
+          </div>
+        </div>
+
+        <div class="skill-card skill-card--highlight reveal" id="skill-highlight">
+          <div class="skill-highlight-inner">
+            <p class="skill-highlight-text">
+              "I write code that's production-ready, scalable, and built to last."
+            </p>
+            <a href="#contact" class="btn btn--white" id="skill-cta">Let's work together →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-top">
+        <div class="section-label reveal">That's all for now</div>
+        <h2 class="section-title contact-title reveal" id="contact-heading">
+          Got a project in mind?<br />Let's talk
+        </h2>
+      </div>
+
+      <div class="contact-body">
+        <div class="contact-cards reveal">
+          <a href="mailto:zfadlii221@gmail.com" class="contact-card" id="contact-email">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">zfadlii221@gmail.com</span>
+            </div>
+          </a>
+          
+          <button class="contact-card contact-copy" id="contact-phone" aria-label="Copy phone number" data-copy="+60182792247">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">+6018 279 2247</span>
+            </div>
+            <span class="copy-toast" role="status">Copied!</span>
+          </button>
+
+          <a href="https://github.com/zlfad" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-github">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">github.com/zlfad</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-cta-wrapper reveal">
+          <div class="cta-ripple"></div>
+          <div class="cta-ripple cta-ripple-2"></div>
+          <a href="mailto:zfadlii221@gmail.com" class="contact-cta-circle" id="contact-cta-btn"
+            aria-label="Send an email to Zulfadli">
+            <span class="contact-cta-label">Get in touch</span>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-marquee" aria-hidden="true">
+      <div class="footer-marquee-inner">
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Muhammad Zulfadli bin Kamaruzzaman</span>
+      <span class="footer-built">Built with HTML, CSS &amp; JS</span>
+    </div>
+  </footer>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
