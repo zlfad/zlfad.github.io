@@ -359,6 +359,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-name em {
   font-style: normal;
 }
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  color: var(--c-accent);
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
 .hero-tagline {
   font-size: 1.05rem;

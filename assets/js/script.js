@@ -292,4 +292,49 @@
     });
   });
 
+  /* ----------------------------------------
+     12. TYPEWRITER EFFECT
+  ---------------------------------------- */
+  const heroNameEl = document.getElementById('hero-name-typewriter');
+  if (heroNameEl) {
+    const line1Text = heroNameEl.getAttribute('data-line1');
+    const line2Text = heroNameEl.getAttribute('data-line2');
+    const line1Span = heroNameEl.querySelector('.tw-line1');
+    const line2Span = heroNameEl.querySelector('.tw-line2');
+    
+    // Clear text initially for typing
+    line1Span.textContent = '';
+    line2Span.textContent = '';
+    
+    let i = 0;
+    const typeLine1 = () => {
+      if (i < line1Text.length) {
+        line1Span.textContent += line1Text.charAt(i);
+        i++;
+        setTimeout(typeLine1, 100);
+      } else {
+        line1Span.classList.remove('typing-cursor');
+        line2Span.classList.add('typing-cursor');
+        i = 0;
+        setTimeout(typeLine2, 200);
+      }
+    };
+    
+    const typeLine2 = () => {
+      if (i < line2Text.length) {
+        line2Span.textContent += line2Text.charAt(i);
+        i++;
+        setTimeout(typeLine2, 100);
+      } else {
+        // Keep the blinking cursor at the end for the tech vibe
+      }
+    };
+    
+    // Start typing after the initial load animation delay
+    setTimeout(() => {
+      line1Span.classList.add('typing-cursor');
+      typeLine1();
+    }, 1200);
+  }
+
 })();
