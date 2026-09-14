@@ -23,6 +23,13 @@
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
 </head>
 
 <body>
@@ -40,12 +47,31 @@
         <li><a href="#contact" class="nav-link nav-link--cta" id="nav-contact">Contact</a></li>
       </ul>
 
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-      </button>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -340,7 +366,23 @@
         </article>
 
         <!-- Project 3 — CRM SaaS -->
-        <article class="project-card project-card--wide reveal" id="project-crm" aria-labelledby="proj-title-3">
+        <article class="project-card reveal" id="project-crm" aria-labelledby="proj-title-3">
+          <div class="project-img-wrap">
+            <img src="assets/images/CRMKita.png" alt="CRM SaaS Platform Interface" class="project-img"
+              loading="lazy" />
+            <div class="project-img-overlay">
+              <a href="https://github.com/zlfad" target="_blank" rel="noopener noreferrer" class="project-link-btn"
+                aria-label="View CRM SaaS Platform on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                View Project
+              </a>
+            </div>
+          </div>
           <div class="project-body">
             <div class="project-number">03</div>
             <h3 class="project-title" id="proj-title-3">CRM SaaS Platform</h3>
@@ -354,28 +396,6 @@
               <span class="tech-tag tech-tag--accent">Redis</span>
               <span class="tech-tag tech-tag--accent">Laravel Horizon</span>
               <span class="tech-tag tech-tag--accent">shadcn/ui</span>
-            </div>
-          </div>
-          <div class="project-crm-visual" aria-hidden="true">
-            <div class="crm-kanban">
-              <div class="crm-col">
-                <div class="crm-col-head">Lead</div>
-                <div class="crm-card-mini"></div>
-                <div class="crm-card-mini crm-card-mini--tall"></div>
-              </div>
-              <div class="crm-col">
-                <div class="crm-col-head">Qualified</div>
-                <div class="crm-card-mini crm-card-mini--tall"></div>
-                <div class="crm-card-mini"></div>
-              </div>
-              <div class="crm-col">
-                <div class="crm-col-head">Proposal</div>
-                <div class="crm-card-mini"></div>
-              </div>
-              <div class="crm-col">
-                <div class="crm-col-head">Won</div>
-                <div class="crm-card-mini crm-card-mini--tall crm-card-mini--won"></div>
-              </div>
             </div>
           </div>
         </article>

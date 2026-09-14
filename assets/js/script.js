@@ -49,6 +49,7 @@
   hamburger.addEventListener('click', () => {
     const isOpen = hamburger.classList.toggle('open');
     navLinksEl.classList.toggle('open', isOpen);
+    navbar.classList.toggle('menu-open', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
@@ -57,6 +58,7 @@
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navLinksEl.classList.remove('open');
+      navbar.classList.remove('menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
@@ -66,6 +68,7 @@
     if (!navbar.contains(e.target)) {
       hamburger.classList.remove('open');
       navLinksEl.classList.remove('open');
+      navbar.classList.remove('menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
     }
   });
@@ -131,16 +134,24 @@
   }
 
   /* ----------------------------------------
-     5. ACTIVE NAV LINK STYLES
-     (injected via JS to avoid CSS specificity issues)
+     5. THEME TOGGLE
   ---------------------------------------- */
-  const style = document.createElement('style');
-  style.textContent = `
-    .nav-link--active {
-      color: #f0f0f0 !important;
-    }
-  `;
-  document.head.appendChild(style);
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      if (newTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
 
   /* ----------------------------------------
      6. PREMIUM SMOOTH SCROLL
