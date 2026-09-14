@@ -25,6 +25,12 @@
 
   --c-grid-line:   rgba(255, 255, 255, 0.03);
   --c-radial-glow: rgba(0, 255, 153, 0.15);
+  --c-bg-text-stroke: rgba(255, 255, 255, 0.08);
+  
+  --c-ring-1: rgba(0, 255, 153, 0.4);
+  --c-ring-2: rgba(0, 255, 153, 0.8);
+  --c-ring-3: rgba(0, 255, 153, 0.2);
+  --c-photo-border: rgba(0, 255, 153, 0.3);
   
   --c-glass-bg:    rgba(10, 10, 10, 0.85);
   --c-glass-menu:  rgba(10, 10, 10, 0.95);
@@ -53,6 +59,12 @@
 
   --c-grid-line:   rgba(15, 23, 42, 0.05);
   --c-radial-glow: rgba(16, 185, 129, 0.15);
+  --c-bg-text-stroke: rgba(6, 95, 70, 0.15); /* Dark emerald for bg text */
+  
+  --c-ring-1: rgba(6, 95, 70, 0.4); /* Dark emerald for rings */
+  --c-ring-2: rgba(6, 95, 70, 0.8);
+  --c-ring-3: rgba(6, 95, 70, 0.2);
+  --c-photo-border: rgba(6, 95, 70, 0.3);
   
   --c-glass-bg:    rgba(253, 253, 253, 0.85);
   --c-glass-menu:  rgba(241, 245, 249, 0.95);
@@ -385,7 +397,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: clamp(3.5rem, 9vw, 8rem);
   font-weight: 800;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+  -webkit-text-stroke: 1px var(--c-bg-text-stroke);
   white-space: nowrap;
   animation: marqueeScroll 18s linear infinite;
   will-change: transform;
@@ -486,7 +498,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 8px;
   background: var(--c-bg-card);
   box-shadow: 0 0 60px var(--c-accent-glow);
-  border: 1px solid rgba(0,255,153,0.3);
+  border: 1px solid var(--c-photo-border);
   display: flex;
   align-items: center;
   justify-content: center;
