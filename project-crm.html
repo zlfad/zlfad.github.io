@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Case study: Full-stack omnichannel CRM SaaS built with Laravel, React and Redis at Trackerhero — Kanban pipelines, real-time messaging, multi-tenant architecture." />
+  <meta property="og:title" content="CRM SaaS Platform — Zulfadli Portfolio" />
+  <meta property="og:description"
+    content="How I built a production CRM SaaS at Trackerhero using Laravel, React, Redis and WebSockets." />
+  <title>CRM SaaS Platform — Zulfadli Portfolio</title>
+
+  <!-- Google Fonts (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Fontshare & Google Fonts (display headings) -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@700,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Zulfadli Home">@ Zulfadli</a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html#about" class="nav-link" id="nav-about">About</a></li>
+        <li><a href="index.html#experience" class="nav-link" id="nav-exp">Experience</a></li>
+        <li><a href="index.html#projects" class="nav-link" id="nav-proj">Projects</a></li>
+        <li><a href="index.html#skills" class="nav-link" id="nav-skills">Skills</a></li>
+        <li><a href="assets/doc/Resume_Muhammad Zulfadli.pdf" target="_blank" rel="noopener" class="nav-link" id="nav-resume">Résumé</a></li>
+        <li><a href="index.html#contact" class="nav-link nav-link--cta" id="nav-contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== CASE STUDY CONTENT ========== -->
+  <main>
+    <header class="case-hero reveal">
+      <h1 class="case-title">CRMKita</h1>
+      <p class="case-subtitle">A production-grade, full-stack omnichannel CRM SaaS built at Trackerhero Sdn Bhd. Features include an omnichannel unified inbox, dynamic Kanban sales pipelines, automated lead routing, multi-tenant architecture, and real-time communication — deployed and serving real business customers.</p>
+      
+      <div class="case-overview-grid">
+        <div class="case-overview-item">
+          <h4>Role</h4>
+          <p>Software Developer Intern</p>
+        </div>
+        <div class="case-overview-item">
+          <h4>Timeline</h4>
+          <p>March 2026 – Present</p>
+        </div>
+        <div class="case-overview-item">
+          <h4>Tech Stack</h4>
+          <span class="tech-tag tech-tag--accent">Laravel</span>
+          <span class="tech-tag tech-tag--accent">React</span>
+          <span class="tech-tag tech-tag--accent">Redis</span>
+          <span class="tech-tag tech-tag--accent">Inertia.js</span>
+          <span class="tech-tag tech-tag--accent">Radix UI</span>
+        </div>
+        <div class="case-overview-item">
+          <h4>Live Product</h4>
+          <a href="https://crmkita.trackerhero.com/" target="_blank" rel="noopener noreferrer" class="project-link-btn" style="margin-top:8px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            crmkita.trackerhero.com
+          </a>
+        </div>
+      </div>
+
+      <div class="case-hero-img-wrap">
+        <img src="assets/images/CRMKita.png" alt="CRM SaaS Platform Interface" class="case-hero-img" />
+      </div>
+    </header>
+
+    <section class="case-content reveal">
+      <h2 class="case-section-title">The Challenge</h2>
+      <p class="case-text">Trackerhero needed a unified, multi-tenant CRM that allowed SME clients to manage leads across multiple channels (WhatsApp, Email, Web Forms) without dropping conversations or losing revenue. Existing tools were fragmented — agents had to switch between platforms, and lead data was siloed per channel, creating blind spots in the sales pipeline.</p>
+      
+      <h2 class="case-section-title">The Solution</h2>
+      <p class="case-text">I independently developed the CRM module using <strong>Laravel</strong> for a robust, multi-tenant backend API, and <strong>React via Inertia.js</strong> for a snappy SPA-like frontend. Authentication, database workflows, business logic, and API integrations were all built from scratch. By leveraging <strong>Redis and Laravel Horizon</strong>, all connected clients receive real-time Kanban state sync whenever a lead is updated or moved.</p>
+      
+      <h2 class="case-section-title">Key Features</h2>
+      <div class="bento-grid case-features-grid">
+        <div class="bento-card">
+          <h3 class="bento-title">Omnichannel Unified Inbox</h3>
+          <p class="bento-desc">Centralised inbox aggregating messages from WhatsApp and Email into a single unified thread per lead — no more tab-switching.</p>
+        </div>
+        <div class="bento-card">
+          <h3 class="bento-title">Dynamic Kanban Pipelines</h3>
+          <p class="bento-desc">Drag-and-drop sales pipelines with real-time state sync via WebSockets. Any status change is instantly reflected across all active sessions.</p>
+        </div>
+        <div class="bento-card">
+          <h3 class="bento-title">Automated Lead Routing</h3>
+          <p class="bento-desc">Rules-based lead assignment automatically routes incoming leads to the correct agent or pipeline stage based on configurable criteria.</p>
+        </div>
+        <div class="bento-card">
+          <h3 class="bento-title">Multi-Tenant Architecture</h3>
+          <p class="bento-desc">Complete data segregation per tenant with shared infrastructure — each business operates in total isolation while running on the same platform.</p>
+        </div>
+      </div>
+
+      <h2 class="case-section-title">Outcomes &amp; Learnings</h2>
+      <p class="case-text">Deploying to a live production environment serving real businesses taught me invaluable lessons about multi-tenant database scaling, handling real-time state with Redis queues, resolving service-layer bugs without disrupting active operations, and writing technical documentation for client onboarding. This project is the most comprehensive full-stack system I have independently built to date.</p>
+    </section>
+
+    <div class="case-next reveal">
+      <span class="case-next-label">Next Project</span>
+      <a href="index.html#projects" class="case-next-title">Back to Projects →</a>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-marquee" aria-hidden="true">
+      <div class="footer-marquee-inner">
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+        <span>Zulfadli &nbsp;&nbsp;•&nbsp;&nbsp; </span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Muhammad Zulfadli bin Kamaruzzaman</span>
+      <span class="footer-built">Built with HTML, CSS &amp; JS</span>
+    </div>
+  </footer>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

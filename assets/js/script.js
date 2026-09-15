@@ -1,7 +1,8 @@
 /* ===========================================
    Zulfadli Portfolio — script.js
    Features: Navbar scroll, mobile menu,
-             scroll-reveal, copy-to-clipboard
+              scroll-reveal, contact form,
+              WA bubble, social links
    =========================================== */
 
 (function () {
@@ -46,30 +47,28 @@
   const hamburger = document.getElementById('hamburger');
   const navLinksEl = document.getElementById('nav-links');
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
+  function toggleMobileMenu(forceClose = false) {
+    const isOpen = forceClose ? false : !hamburger.classList.contains('open');
+    hamburger.classList.toggle('open', isOpen);
     navLinksEl.classList.toggle('open', isOpen);
     navbar.classList.toggle('menu-open', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
+    
+    // Prevent background scrolling when menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', () => toggleMobileMenu());
 
   // Close menu on link click
   navLinksEl.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinksEl.classList.remove('open');
-      navbar.classList.remove('menu-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', () => toggleMobileMenu(true));
   });
 
   // Close menu on outside click
   document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target)) {
-      hamburger.classList.remove('open');
-      navLinksEl.classList.remove('open');
-      navbar.classList.remove('menu-open');
-      hamburger.setAttribute('aria-expanded', 'false');
+    if (!navbar.contains(e.target) && hamburger.classList.contains('open')) {
+      toggleMobileMenu(true);
     }
   });
 
@@ -237,7 +236,83 @@
   skillCards.forEach((card) => skillObserver.observe(card));
 
   /* ----------------------------------------
-     9. CUSTOM CURSOR
+     9. CONTACT FORM — validation + Formspree
+  ---------------------------------------- */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const submitBtn = document.getElementById('cf-submit');
+    const successEl = document.getElementById('form-success');
+
+    function validateField(input, errorId, msg) {
+      const err = document.getElementById(errorId);
+      if (!input || !input.value.trim()) {
+        if (input) input.classList.add('input-error');
+        if (err) err.textContent = msg;
+        return false;
+      }
+      if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+        input.classList.add('input-error');
+        if (err) err.textContent = 'Please enter a valid email address.';
+        return false;
+      }
+      input.classList.remove('input-error');
+      if (err) err.textContent = '';
+      return true;
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nameEl    = document.getElementById('cf-name');
+      const emailEl   = document.getElementById('cf-email');
+      const messageEl = document.getElementById('cf-message');
+
+      const v1 = validateField(nameEl, 'err-name', 'Name is required.');
+      const v2 = validateField(emailEl, 'err-email', 'Email is required.');
+      const v3 = validateField(messageEl, 'err-message', 'Message is required.');
+      if (!v1 || !v2 || !v3) return;
+
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      try {
+        const data = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          successEl.classList.add('show');
+          submitBtn.style.display = 'none';
+        } else {
+          const body = await response.json();
+          const msg = body.errors ? body.errors.map(e => e.message).join(', ') : 'Something went wrong. Try emailing directly.';
+          alert(msg);
+        }
+      } catch {
+        alert('Network error. Please email me directly at zfadlii221@gmail.com');
+      } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Live clear errors on input
+    ['cf-name', 'cf-email', 'cf-message'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => {
+        el.classList.remove('input-error');
+        const errMap = { 'cf-name': 'err-name', 'cf-email': 'err-email', 'cf-message': 'err-message' };
+        const err = document.getElementById(errMap[id]);
+        if (err) err.textContent = '';
+      });
+    });
+  }
+
+  /* ----------------------------------------
+     10. CUSTOM CURSOR
   ---------------------------------------- */
   const cursor = document.querySelector('.custom-cursor');
   if (cursor && window.matchMedia("(pointer: fine)").matches) {
@@ -246,7 +321,7 @@
       cursor.style.top = e.clientY + 'px';
     });
     
-    const hoverElements = document.querySelectorAll('a, button, .bento-card, .project-card, .skill-card, .contact-card, .contact-cta-circle');
+    const hoverElements = document.querySelectorAll('a, button, .bento-card, .project-card, .skill-card, .contact-card, .wa-bubble, .footer-social, .hero-social-link');
     hoverElements.forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -346,6 +421,140 @@
       line1Span.classList.add('typing-cursor');
       typeLine1();
     }, 1200);
+  }
+
+  /* ----------------------------------------
+     14. COMMAND MENU (Cmd+K)
+  ---------------------------------------- */
+  const cmdMenu = document.getElementById('cmd-menu');
+  const cmdInput = document.getElementById('cmd-input');
+  const cmdCloseBtn = document.getElementById('cmd-close');
+  const cmdItems = Array.from(document.querySelectorAll('.cmd-item'));
+  let selectedCmdIndex = 0;
+
+  function toggleCmdMenu() {
+    if (!cmdMenu) return;
+    if (cmdMenu.hasAttribute('open')) {
+      cmdMenu.removeAttribute('open');
+      document.body.style.overflow = '';
+      cmdInput.blur();
+    } else {
+      cmdMenu.setAttribute('open', '');
+      document.body.style.overflow = 'hidden';
+      cmdInput.value = '';
+      filterCmds('');
+      setTimeout(() => cmdInput.focus(), 50);
+    }
+  }
+
+  function filterCmds(query) {
+    const q = query.toLowerCase().trim();
+    let visibleItems = [];
+    cmdItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(q)) {
+        item.classList.remove('hidden');
+        visibleItems.push(item);
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('selected');
+      }
+    });
+
+    // Update selection to the first visible item
+    cmdItems.forEach(item => item.classList.remove('selected'));
+    if (visibleItems.length > 0) {
+      selectedCmdIndex = cmdItems.indexOf(visibleItems[0]);
+      visibleItems[0].classList.add('selected');
+    }
+  }
+
+  function handleCmdExecution(item) {
+    if (!item) return;
+    const action = item.getAttribute('data-action');
+    const target = item.getAttribute('data-target');
+
+    toggleCmdMenu(); // close first
+
+    setTimeout(() => {
+      if (action === 'link') {
+        const targetEl = document.querySelector(target);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (action === 'theme') {
+        const btn = document.getElementById('theme-toggle');
+        if (btn) btn.click();
+      } else if (action === 'download') {
+        window.open(target, '_blank');
+      }
+    }, 150);
+  }
+
+  // Event Listeners
+  if (cmdMenu) {
+    // Keyboard shortcut Cmd+K or Ctrl+K
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        toggleCmdMenu();
+      }
+      
+      // Handle ESC to close
+      if (e.key === 'Escape' && cmdMenu.hasAttribute('open')) {
+        toggleCmdMenu();
+      }
+    });
+
+    // Input filtering
+    cmdInput.addEventListener('input', (e) => filterCmds(e.target.value));
+
+    // Keyboard navigation within menu
+    cmdInput.addEventListener('keydown', (e) => {
+      const visible = cmdItems.filter(item => !item.classList.contains('hidden'));
+      if (visible.length === 0) return;
+
+      const currentVisibleIdx = visible.indexOf(cmdItems[selectedCmdIndex]);
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextVisibleIdx = (currentVisibleIdx + 1) % visible.length;
+        cmdItems.forEach(item => item.classList.remove('selected'));
+        selectedCmdIndex = cmdItems.indexOf(visible[nextVisibleIdx]);
+        visible[nextVisibleIdx].classList.add('selected');
+        visible[nextVisibleIdx].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevVisibleIdx = (currentVisibleIdx - 1 + visible.length) % visible.length;
+        cmdItems.forEach(item => item.classList.remove('selected'));
+        selectedCmdIndex = cmdItems.indexOf(visible[prevVisibleIdx]);
+        visible[prevVisibleIdx].classList.add('selected');
+        visible[prevVisibleIdx].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        handleCmdExecution(cmdItems[selectedCmdIndex]);
+      }
+    });
+
+    // Click execution
+    cmdItems.forEach(item => {
+      item.addEventListener('click', () => handleCmdExecution(item));
+      item.addEventListener('mouseenter', () => {
+        cmdItems.forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedCmdIndex = cmdItems.indexOf(item);
+      });
+    });
+
+    // Close buttons/backdrop
+    cmdCloseBtn.addEventListener('click', toggleCmdMenu);
+    cmdMenu.addEventListener('click', (e) => {
+      if (e.target === cmdMenu) toggleCmdMenu();
+    });
+
+    // Navbar button trigger
+    const navBtn = document.getElementById('cmd-nav-btn');
+    if (navBtn) navBtn.addEventListener('click', toggleCmdMenu);
   }
 
 })();
